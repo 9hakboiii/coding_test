@@ -55,12 +55,12 @@ for i in range(4):
     if checkList[i] == 0: # 값이 0이라는 것은 비밀번호 개수가 이미 만족되었다는 뜻
         checkSecret += 1
 
-for i in range(P):
+for i in range(P): # 현재 기준에서 값 탐색
     myadd(A[i])
     if checkSecret == 4:
         answer += 1
 
-for i in range(P, S):
+for i in range(P, S): # 오른쪽으로 이동, 왼쪽 값 삭제 
     j = i - P
     myadd(A[i])
     myremove(A[j])

@@ -1,5 +1,6 @@
 from queue import PriorityQueue
 import sys
+sys.setrecursionlimit(10**7)
 input = sys.stdin.readline
 
 v, e = map(int, input().split())

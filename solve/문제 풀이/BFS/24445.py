@@ -17,14 +17,14 @@ for neighbors in A:
     neighbors.sort(reverse=True)
 
 visited = [False] * (N + 1)
-order = [0] * (N + 1)
+cnt = [0] * (N + 1)
 cnt = 1
 
 def bfs(start):
     global cnt
     q = deque([start])
     visited[start] = True
-    order[start] = cnt
+    cnt[start] = cnt
 
     while q:
         cur = q.popleft()
@@ -32,8 +32,8 @@ def bfs(start):
             if not visited[nxt]:
                 cnt += 1
                 visited[nxt] = True
-                order[nxt] = cnt
+                cnt[nxt] = cnt
                 q.append(nxt)
 
 bfs(R)
-print('\n'.join(map(str, order[1:])))
+print('\n'.join(map(str, cnt[1:])))

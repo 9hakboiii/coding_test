@@ -12,19 +12,21 @@ for _ in range(M):
 for nb in a:
     nb.sort()
 
-order = [0] * (N+1)
-cnt = 1
-
+cnt = [0] * (N + 1)
+visit_order = 1
 stack = [R]
+
 while stack:
     v = stack.pop()
-    if order[v]:
+
+    if cnt[v]:
         continue
-    order[v] = cnt
-    cnt += 1
-    
+
+    cnt[v] = visit_order
+    visit_order += 1
+
     for u in reversed(a[v]):
-        if not order[u]:
+        if not cnt[u]:
             stack.append(u)
 
-sys.stdout.write('\n'.join(map(str, order[1:])))
+sys.stdout.write('\n'.join(map(str, cnt[1:])))

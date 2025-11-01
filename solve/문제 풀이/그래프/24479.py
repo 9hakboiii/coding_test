@@ -13,16 +13,18 @@ for nb in a:
     nb.sort()
 
 cnt = [0] * (N + 1)
-cnt = 1
-
+visit_order = 1
 stack = [R]
+
 while stack:
     v = stack.pop()
+
     if cnt[v]:
         continue
-    cnt[v] = cnt
-    cnt += 1
-    
+
+    cnt[v] = visit_order
+    visit_order += 1
+
     for u in reversed(a[v]):
         if not cnt[u]:
             stack.append(u)
